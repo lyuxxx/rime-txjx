@@ -175,8 +175,8 @@ patch:
     # 配色方案
     # 来源: https://github.com/rime/squirrel/blob/master/data/squirrel.yaml
     # hamster_color_schemas  为引用的颜色文件名称
-    colorSchemas:
-      __include: hamster_color_schemas:/colorSchemas
+    # colorSchemas:
+    #   __include: hamster_color_schemas:/colorSchemas
 
   # RIME 引擎相关配置
   rime:
@@ -215,11 +215,24 @@ patch:
     # 长按延迟时间，只要大于或等于此阈值，才会触发长按 Action，如空格划动
     longPressDelay: 0.3
     # 自带键盘引入，hamster_swipe 为键盘文件名称
-    keyboardSwipe:
-      __include: hamster_swipe:/keyboardSwipe
+    # keyboardSwipe:
+    #   __include: hamster_swipe:/keyboardSwipe
 
   # 自定义键盘布局
   # 布局文档说明文档：https://github.com/imfuxiao/Hamster/wiki/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%94%AE%E7%9B%98%E5%B8%83%E5%B1%80
   # hamster_keyboards 为引用的键盘文件名称
-  keyboards:
-    __include: hamster_keyboards:/keyboards
+  # keyboards:
+  #   __include: hamster_keyboards:/keyboards
+  
+  # 下面兩行是導入自定義配色方案文件
+  keyboard/colorSchemas:
+    __include: custom_color_schemas:/keyboard/colorSchemas
+  # 下面兩行是導入自定義鍵盤佈局文件, 如果使用倉UI導入則不需要這兩行
+  #keyboards:
+  #  __include: custom_keyboards:/keyboards
+  keyboard/+:
+    style:
+      fontFace:
+        - url: "ziti.ttf"
+        - url: "font.ttf"     
+        - url: "SymbolsNerdFontMono-Regular.ttf"      
